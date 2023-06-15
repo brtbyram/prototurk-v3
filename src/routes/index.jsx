@@ -5,6 +5,11 @@ import Articles from "../pages/articles";
 import LectureRequests from "../pages/lecture-requests";
 import Category from "../pages/category";
 import WebLayout from "../layouts/web";
+import QaDashboard from "../pages/qa";
+import UnansweredQuestions from "../pages/qa/unanswered-questions";
+import UnsolvedQuestions from "../pages/qa/unsolved-questions";
+import Categories from "../pages/qa/categories";
+import PopularQuestions from "../pages/qa/popular-questions";
 
 const routes = createBrowserRouter([
     {
@@ -26,6 +31,26 @@ const routes = createBrowserRouter([
             {
                 path: '/ders-istekleri',
                 element: <LectureRequests />
+            },
+            {
+                path: '/soru-cevap',
+                element: <QaDashboard />
+            },
+            {
+                path: '/cevaplanmamis-sorular',
+                element: <UnansweredQuestions />
+            },
+            {
+                path: '/cozulmemis-sorular',
+                element: <UnsolvedQuestions />
+            },
+            {
+                path: '/kategoriler',
+                element: <Categories />
+            },
+            {
+                path: '/popular-sorular',
+                element: <PopularQuestions />
             },
             {
                 path: '/:categorySlug',
