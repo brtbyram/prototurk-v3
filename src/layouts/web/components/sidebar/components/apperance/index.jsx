@@ -23,7 +23,7 @@ function Apperance() {
                     </span>
                     {t(getApperanceName(theme))}
                 </Menu.Button>
-                <Menu.Items className='absolute grid bottom-full left-0 w-[234px] bg-white border border-zinc-300 -translate-y-1 rounded dark:bg-zinc-800 dark:text-white dark:border-zinc-700'>
+                <Menu.Items className='absolute grid bottom-full left-0 w-[234px] bg-white border border-zinc-300 -translate-y-1 rounded overflow-hidden dark:bg-zinc-800 dark:text-white dark:border-zinc-700'>
                     {apperance.map(({ key, value }, index) => (
                         <Menu.Item key={index}>
                             {({ active }) => (
@@ -54,7 +54,7 @@ function Apperance() {
                     <img src={`/icons/${i18n.language}.svg`} className='w-5 h-5 rounded-full object-cover' alt={getLanguageName(i18n.language)} />
                     {i18n.language.toUpperCase()}
                 </Menu.Button>
-                <Menu.Items className='absolute grid bottom-full right-0 w-[234px] bg-white border border-zinc-300 -translate-y-1 rounded dark:bg-zinc-800 dark:text-white dark:border-zinc-700'>
+                <Menu.Items className='absolute grid bottom-full right-0 w-[234px] bg-white border border-zinc-300 -translate-y-1 rounded overflow-hidden dark:bg-zinc-800 dark:text-white dark:border-zinc-700'>
                     {languages.map(({ key, value }, index) => (
                         <Menu.Item key={index}>
                             {({ active }) => (

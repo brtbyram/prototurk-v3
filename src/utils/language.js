@@ -9,7 +9,8 @@ i18n
     .use(Backend)
 	.use(initReactI18next)
 	.init({
-		lng: 'tr'
+		supportedLngs: [ 'tr', 'en', 'az'],
+        fallbackLng: 'tr'
 	})
   
 export { i18n }
