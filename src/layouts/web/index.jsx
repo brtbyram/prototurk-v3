@@ -22,7 +22,7 @@ function WebLayout() {
     <>
         <Header />
         <Sidebar/>
-        <main className='p-6 mt-14 ml-[250px]'>
+        <main className='p-6 mt-14 ml-[250px] dark:text-white'>
         <Outlet/>
         </main>
     </>

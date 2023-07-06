@@ -10,6 +10,10 @@ import UnansweredQuestions from "../pages/qa/unanswered-questions";
 import UnsolvedQuestions from "../pages/qa/unsolved-questions";
 import Categories from "../pages/qa/categories";
 import PopularQuestions from "../pages/qa/popular-questions";
+import Question from "../pages/qa/question";
+import Layout from "../layouts";
+import ArticleDetail from "../pages/articles/detail";
+import User from "../pages/user";
 
 const routes = createBrowserRouter([
     {
@@ -21,12 +25,26 @@ const routes = createBrowserRouter([
                 element: <Home />
             },
             {
+                path: '/uye/:slug',
+                element: <User/>
+            },
+            {
                 path: '/kesfet',
                 element: <Discover />
             },
             {
                 path: '/makaleler',
-                element: <Articles />
+                element: <Layout/>,
+                children: [
+                    {
+                        index:true,
+                        element: <Articles />
+                    },
+                    {
+                        path: ':slug',
+                        element: <ArticleDetail/>
+                    }
+                ]
             },
             {
                 path: '/ders-istekleri',
@@ -55,6 +73,10 @@ const routes = createBrowserRouter([
             {
                 path: '/:categorySlug',
                 element: <Category />
+            },
+            {
+                path: '/soru/:slug',
+                element: <Question/>
             }
         ]
     }
