@@ -14,6 +14,14 @@ import Question from "../pages/qa/question";
 import Layout from "../layouts";
 import ArticleDetail from "../pages/articles/detail";
 import User from "../pages/user";
+import AuthLayout from "../layouts/auth/index";
+import EditProfile from '../pages/profile/edit-profile/index'
+import Followers from '../pages/profile/followers/index'
+import Following from '../pages/profile/following/index'
+import Questions from '../pages/profile/questions/index'
+import Answers from '../pages/profile/answers/index'
+import Notifications from '../pages/profile/notifications/index'
+import Profile from "../pages/profile/index";
 
 const routes = createBrowserRouter([
     {
@@ -21,12 +29,42 @@ const routes = createBrowserRouter([
         element: <WebLayout />,
         children: [
             {
-                index: true , 
+                index: true,
                 element: <Home />
             },
             {
                 path: '/uye/:slug',
-                element: <User/>
+                element: <User />
+            },
+            {
+                path: '/profil',
+                element: <AuthLayout><Profile /></AuthLayout>,
+                children: [
+                    {
+                        index: true,
+                        element: <EditProfile />
+                    },
+                    {
+                        path: 'takipciler',
+                        element: <Followers />
+                    },
+                    {
+                        path: 'takip-ettiklerin',
+                        element: <Following />
+                    },
+                    {
+                        path: 'sorular',
+                        element: <Questions />
+                    },
+                    {
+                        path: 'cevaplar',
+                        element: <Answers />
+                    },
+                    {
+                        path: 'bildirimler',
+                        element: <Notifications />
+                    }
+                ]
             },
             {
                 path: '/kesfet',
@@ -34,15 +72,15 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/makaleler',
-                element: <Layout/>,
+                element: <Layout />,
                 children: [
                     {
-                        index:true,
+                        index: true,
                         element: <Articles />
                     },
                     {
                         path: ':slug',
-                        element: <ArticleDetail/>
+                        element: <ArticleDetail />
                     }
                 ]
             },
@@ -76,7 +114,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/soru/:slug',
-                element: <Question/>
+                element: <Question />
             }
         ]
     }

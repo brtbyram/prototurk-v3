@@ -5,8 +5,9 @@ import Input from '../../../components/input'
 import Or from '../../../components/or'
 import { modal } from '../../../stores/modal/actions'
 import { loginSchema } from '../../../validations'
+import { setUser } from '../../../stores/auth/actions'
 
-function LoginModal() {
+function LoginModal({ destroy }) {
     return (
         <>
             <ModalTitle title="Giriş yap" />
@@ -16,7 +17,10 @@ function LoginModal() {
                     username: '',
                     password: ''
                 }}
-                onSubmit={values => { console.log('gönderilen değerler', values) }}
+                onSubmit={values => {
+                    setUser(values)
+                    destroy()
+                }}
             >
                 <Form className='grid gap-y-4 p-4'>
                     <Input label="Kullanıcı adı" name="username" />

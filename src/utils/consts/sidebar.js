@@ -1,3 +1,5 @@
+import {removeUser} from '../../stores/auth/actions'
+
 export const SIDEBAR_MENU = [
     {
         path: '/',
@@ -75,7 +77,7 @@ export const PROFILE_SIDEBAR_MENU = [
         title : 'Herkese Açık Profilin'
     },
     {
-        onclick: () => console.log('logout butonuna basıldı'),
+        onclick: () => removeUser(),
         sensitive: true ,
         title : 'Çıkış Yap'
     }
